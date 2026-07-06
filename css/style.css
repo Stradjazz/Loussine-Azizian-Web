@@ -272,6 +272,14 @@ h1, h2, h3, h4 {
 
 .page-hero h1 {
   font-size: 2.6rem;
+  font-style: normal;
+}
+
+.page-hero-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  max-width: 520px;
+  margin: 14px auto 0;
 }
 
 /* --------------------------------------------------------------------
@@ -312,6 +320,21 @@ h1, h2, h3, h4 {
 
 .about-copy .btn {
   margin-top: 20px;
+}
+
+.bio-more {
+  margin-top: 40px;
+}
+
+.bio-more p {
+  margin-bottom: 18px;
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.bio-more strong {
+  color: var(--color-dark);
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------
@@ -359,6 +382,7 @@ h1, h2, h3, h4 {
 
 .video-frame {
   position: relative;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
@@ -367,6 +391,20 @@ h1, h2, h3, h4 {
 
 .video-frame img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-frame.is-playing {
+  cursor: default;
 }
 
 .play-btn {
@@ -429,6 +467,9 @@ h1, h2, h3, h4 {
 }
 
 .disco-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   text-align: center;
 }
 
@@ -446,6 +487,10 @@ h1, h2, h3, h4 {
   font-size: 0.85rem;
   color: var(--color-text-light);
   margin-bottom: 14px;
+}
+
+.disco-card .link-arrow {
+  margin-top: auto;
 }
 
 .discography-cta {
@@ -545,6 +590,9 @@ blockquote {
 }
 
 .agenda-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -587,6 +635,9 @@ blockquote {
 
 .agenda-card-body {
   padding: 26px 28px 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .agenda-date {
@@ -595,6 +646,7 @@ blockquote {
   font-weight: 600;
   letter-spacing: 0.5px;
   margin-bottom: 10px;
+  min-height: 4.2em;
 }
 
 .agenda-card h3 {
@@ -604,13 +656,6 @@ blockquote {
   margin-bottom: 10px;
 }
 
-.agenda-card .program-label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--color-dark);
-  margin-top: 12px;
-}
-
 .agenda-card p {
   font-size: 0.88rem;
   color: var(--color-text-light);
@@ -618,7 +663,8 @@ blockquote {
 
 .agenda-card .link-arrow {
   display: inline-block;
-  margin-top: 16px;
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 /* --------------------------------------------------------------------
