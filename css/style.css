@@ -1,0 +1,828 @@
+/* ==========================================================================
+   Loussine Azizian — Violinist | Main Stylesheet
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-bg: #f4efe8;
+  --color-bg-alt: #ede5da;
+  --color-dark: #241f1a;
+  --color-dark-soft: #3a332c;
+  --color-accent: #b97b4c;
+  --color-accent-dark: #8c5a34;
+  --color-text: #4a433c;
+  --color-text-light: #7a7268;
+  --color-white: #ffffff;
+  --color-border: rgba(36, 31, 26, 0.1);
+
+  /* Type */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Layout */
+  --max-width: 1180px;
+  --radius: 2px;
+  --transition: 0.25s ease;
+}
+
+/* --------------------------------------------------------------------
+   Reset & base
+   -------------------------------------------------------------------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+.eyebrow {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--color-accent);
+  margin-bottom: 18px;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--color-text-light);
+  max-width: 620px;
+  margin: 0 auto 50px;
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: var(--color-dark);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid var(--color-dark);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--color-dark);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
+
+.btn-outline:hover {
+  background: var(--color-white);
+  color: var(--color-dark);
+}
+
+.link-arrow {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition);
+}
+
+.link-arrow:hover {
+  border-color: var(--color-accent);
+}
+
+/* --------------------------------------------------------------------
+   Header / Navigation
+   -------------------------------------------------------------------- */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 28px 0;
+}
+
+.site-header.is-solid {
+  position: fixed;
+  background: rgba(36, 31, 26, 0.95);
+  padding: 16px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  transition: background var(--transition), padding var(--transition);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-primary {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-primary a {
+  color: var(--color-white);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.nav-primary a:hover,
+.nav-primary a.is-active {
+  color: var(--color-accent);
+}
+
+.site-logo img {
+  height: 60px;
+  width: auto;
+}
+
+.nav-social {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-social a {
+  color: var(--color-white);
+  font-size: 0.95rem;
+  transition: color var(--transition);
+}
+
+.nav-social a:hover {
+  color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--color-white);
+}
+
+/* --------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center 20%;
+  color: var(--color-white);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20,16,12,0.55) 0%, rgba(20,16,12,0.35) 40%, rgba(20,16,12,0.75) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 60px;
+}
+
+.hero-content h1 {
+  color: var(--color-white);
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.hero-content h1 .line2 {
+  display: block;
+}
+
+.hero-content .btn {
+  margin-top: 34px;
+}
+
+.page-hero {
+  min-height: 380px;
+}
+
+.page-hero h1 {
+  font-size: 2.6rem;
+}
+
+/* --------------------------------------------------------------------
+   About / intro section
+   -------------------------------------------------------------------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-photo-wrap {
+  position: relative;
+}
+
+.about-photo-wrap::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-alt);
+  z-index: 0;
+}
+
+.about-photo-wrap img {
+  position: relative;
+  z-index: 1;
+}
+
+.about-copy p {
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.about-copy .btn {
+  margin-top: 20px;
+}
+
+/* --------------------------------------------------------------------
+   Featured on / logo strip
+   -------------------------------------------------------------------- */
+.featured-on {
+  text-align: center;
+  padding: 70px 0;
+}
+
+.featured-on p {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 40px;
+}
+
+.logo-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.logo-strip img {
+  height: 34px;
+  width: auto;
+  opacity: 0.85;
+  filter: grayscale(100%);
+  transition: opacity var(--transition), filter var(--transition);
+}
+
+.logo-strip img:hover {
+  opacity: 1;
+  filter: none;
+}
+
+/* --------------------------------------------------------------------
+   Video feature
+   -------------------------------------------------------------------- */
+.video-feature {
+  padding-bottom: 90px;
+}
+
+.video-frame {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.video-frame img {
+  width: 100%;
+}
+
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(244, 239, 232, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition);
+}
+
+.video-frame:hover .play-btn {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.play-btn::after {
+  content: "";
+  border-style: solid;
+  border-width: 10px 0 10px 16px;
+  border-color: transparent transparent transparent var(--color-dark);
+  margin-left: 4px;
+}
+
+.video-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.video-info h3 {
+  font-size: 1.9rem;
+  font-style: italic;
+}
+
+.video-meta p {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: var(--color-text-light);
+}
+
+.video-meta .btn {
+  margin-top: 16px;
+}
+
+/* --------------------------------------------------------------------
+   Discography grid
+   -------------------------------------------------------------------- */
+.discography-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.disco-card {
+  text-align: center;
+}
+
+.disco-cover {
+  margin-bottom: 22px;
+  box-shadow: 0 20px 40px rgba(36, 31, 26, 0.15);
+}
+
+.disco-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.disco-card p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-bottom: 14px;
+}
+
+.discography-cta {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------
+   Quote
+   -------------------------------------------------------------------- */
+.quote-section {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.quote-section .eyebrow {
+  margin: 0 auto 30px;
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 6px;
+}
+
+blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.9rem;
+  max-width: 720px;
+  margin: 0 auto 24px;
+  color: var(--color-dark);
+}
+
+.quote-cite {
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------
+   Agenda / Concerts cards
+   -------------------------------------------------------------------- */
+.agenda-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.agenda-section::before,
+.agenda-section::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  z-index: 0;
+}
+
+.agenda-section::before {
+  width: 420px;
+  height: 420px;
+  background: rgba(185, 123, 76, 0.16);
+  top: -120px;
+  right: -80px;
+}
+
+.agenda-section::after {
+  width: 380px;
+  height: 380px;
+  background: rgba(36, 31, 26, 0.06);
+  bottom: -140px;
+  left: -100px;
+}
+
+.agenda-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.agenda-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 44px;
+}
+
+.agenda-header h2 {
+  font-size: 2.2rem;
+  font-style: italic;
+}
+
+.agenda-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.agenda-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(36, 31, 26, 0.07), 0 2px 8px rgba(36, 31, 26, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.agenda-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(36, 31, 26, 0.13), 0 6px 14px rgba(36, 31, 26, 0.06);
+}
+
+.agenda-card-media {
+  position: relative;
+}
+
+.agenda-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.agenda-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(36, 31, 26, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--color-white);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.agenda-card-body {
+  padding: 26px 28px 30px;
+}
+
+.agenda-date {
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.agenda-card h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  font-style: normal;
+  margin-bottom: 10px;
+}
+
+.agenda-card .program-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-top: 12px;
+}
+
+.agenda-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-light);
+}
+
+.agenda-card .link-arrow {
+  display: inline-block;
+  margin-top: 16px;
+}
+
+/* --------------------------------------------------------------------
+   Contact
+   -------------------------------------------------------------------- */
+.contact-section {
+  background: var(--color-bg-alt);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+}
+
+.contact-intro h2 {
+  font-size: 2.3rem;
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.contact-intro p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+.contact-form .form-row {
+  margin-bottom: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  border-radius: var(--radius);
+}
+
+.contact-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.contact-form button {
+  border: none;
+}
+
+.form-status {
+  margin-top: 14px;
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 60px 0 24px;
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 24px;
+}
+
+.footer-top h2 {
+  color: var(--color-white);
+  font-style: italic;
+  font-size: 1.7rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-social a {
+  color: var(--color-white);
+  transition: color var(--transition);
+}
+
+.footer-social a:hover {
+  color: var(--color-accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-bottom a {
+  color: rgba(255,255,255,0.6);
+}
+
+/* --------------------------------------------------------------------
+   Generic page content (About / Concerts / Discography / Gallery / Contact)
+   -------------------------------------------------------------------- */
+.content-block {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.content-block p {
+  margin-bottom: 18px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.gallery-item {
+  overflow: hidden;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+/* --------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .about-grid,
+  .contact-grid,
+  .video-info {
+    grid-template-columns: 1fr;
+  }
+
+  .discography-grid,
+  .agenda-grid,
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-content h1 { font-size: 2.2rem; }
+}
+
+@media (max-width: 700px) {
+  .nav-primary,
+  .nav-social {
+    display: none;
+  }
+
+  .site-header.nav-open .nav-primary {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    background: var(--color-dark);
+    padding: 100px 40px;
+    gap: 24px;
+    z-index: 99;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .discography-grid,
+  .agenda-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .hero-content h1 { font-size: 1.7rem; }
+}
