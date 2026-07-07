@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat)",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless --disable-gpu --screenshot=/c/Users/IVD/AppData/Local/Temp/claude/c--Users-IVD-Ivo-Lucy-Website-Website-code/522b3dd6-f7f6-4884-b0d3-353cf4f3e51c/scratchpad/placeholder.png --window-size=600,400 --hide-scrollbars --no-sandbox file:///c/Users/IVD/AppData/Local/Temp/claude/c--Users-IVD-Ivo-Lucy-Website-Website-code/522b3dd6-f7f6-4884-b0d3-353cf4f3e51c/scratchpad/placeholder.html)",
+      "Read(//c/Users/IVD/AppData/Local/Temp/claude/c--Users-IVD-Ivo-Lucy-Website-Website-code/522b3dd6-f7f6-4884-b0d3-353cf4f3e51c/scratchpad/**)",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless --disable-gpu --screenshot=/c/Users/IVD/AppData/Local/Temp/claude/c--Users-IVD-Ivo-Lucy-Website-Website-code/522b3dd6-f7f6-4884-b0d3-353cf4f3e51c/scratchpad/gallery-check.png --window-size=1400,4700 --hide-scrollbars --no-sandbox --virtual-time-budget=4000 http://localhost:8797/gallery.html)",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless --disable-gpu --screenshot=/c/Users/IVD/AppData/Local/Temp/claude/c--Users-IVD-Ivo-Lucy-Website-Website-code/522b3dd6-f7f6-4884-b0d3-353cf4f3e51c/scratchpad/gallery-carousel-zoom.png --window-size=1400,1400 --hide-scrollbars --no-sandbox --virtual-time-budget=4000 'http://localhost:8797/gallery.html#')"
+    ]
+  }
+}
