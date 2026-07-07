@@ -2,7 +2,7 @@
    Loussine Azizian — Violinist | Concert Schedule (Google Sheets API)
    ========================================================================== */
 
-const EVENTS_API_URL = "https://script.google.com/macros/s/AKfycbzH4CdckvnhngU9tI_seukoFT6vxdpuIB8mjkroulJuA9Kfx9ikfQ-FxRRHqq81NB49/exec";
+const AGENDA_API_URL = "https://script.google.com/macros/s/AKfycbwjRzme5cmT8q646qLwhkqRxJLsJ1I_CY4AXKO-lDNajxnB-aCoWUwTPZVMmogl41el/exec";
 
 (function () {
   var container = document.getElementById('concert-schedule');
@@ -17,7 +17,7 @@ const EVENTS_API_URL = "https://script.google.com/macros/s/AKfycbzH4CdckvnhngU9t
       .replace(/'/g, '&#039;');
   }
 
-  function safeLink(value) {
+  function sanitizeUrl(value) {
     return typeof value === 'string' && /^https?:\/\//i.test(value.trim())
       ? encodeURI(value.trim())
       : null;
@@ -38,24 +38,27 @@ const EVENTS_API_URL = "https://script.google.com/macros/s/AKfycbzH4CdckvnhngU9t
       ? '<p class="concert-subtitle">' + escapeHtml(concert.subtitle) + '</p>'
       : '';
 
-    var ticketUrl = safeLink(concert.link);
-    var linkHtml = ticketUrl
+    var ticketUrl = sanitizeUrl(concert.tickets);
+    var ticketsHtml = ticketUrl
       ? '<a href="' + ticketUrl + '" class="link-arrow" target="_blank" rel="noopener">Tickets <i class="fas fa-arrow-right"></i></a>'
+      : '';
+
+    var imageUrl = sanitizeUrl(concert.image);
+    var mediaHtml = imageUrl
+      ? '<div class="agenda-card-media"><img src="' + imageUrl + '" alt="' + escapeHtml(concert.title) + '"></div>'
       : '';
 
     var dateLine = escapeHtml(concert.date) + (concert.location ? ' &middot; ' + escapeHtml(concert.location) : '');
 
     return (
       '<article class="agenda-card">' +
-      '<div class="agenda-card-media">' +
-      '<img src="images/agenda-card.png" alt="' + escapeHtml(concert.title) + '">' +
-      '</div>' +
+      mediaHtml +
       '<div class="agenda-card-body">' +
       '<p class="agenda-date">' + dateLine + '</p>' +
       '<h3 class="concert-title">' + escapeHtml(concert.title) + '</h3>' +
       subtitleHtml +
       programHtml +
-      linkHtml +
+      ticketsHtml +
       '</div>' +
       '</article>'
     );
@@ -63,7 +66,7 @@ const EVENTS_API_URL = "https://script.google.com/macros/s/AKfycbzH4CdckvnhngU9t
 
   async function loadConcertSchedule() {
     try {
-      var response = await fetch(EVENTS_API_URL);
+      var response = await fetch(AGENDA_API_URL);
       if (!response.ok) throw new Error('Request failed with status ' + response.status);
 
       var concerts = await response.json();
