@@ -63,18 +63,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ---- Contact form (static site placeholder handling) ---- */
-  var contactForm = document.querySelector('.contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var status = contactForm.querySelector('.form-status');
-      if (status) {
-        status.textContent = 'Thank you — your message has been noted. (Connect this form to Formspree / Cloudflare Pages Forms to actually receive submissions.)';
-        status.style.color = '#8c5a34';
-      }
-      contactForm.reset();
-    });
-  }
-
 });

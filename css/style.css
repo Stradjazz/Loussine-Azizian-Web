@@ -901,6 +901,14 @@ blockquote {
   font-size: 0.85rem;
 }
 
+.form-status-success {
+  color: var(--color-accent-dark);
+}
+
+.form-status-error {
+  color: #b3423a;
+}
+
 /* --------------------------------------------------------------------
    Footer
    -------------------------------------------------------------------- */
