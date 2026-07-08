@@ -51,6 +51,10 @@ async function handleContactFormSubmit(e) {
       setTimeout(function () {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalBtnHtml;
+        if (status) {
+          status.textContent = '';
+          status.classList.remove('form-status-success', 'form-status-error');
+        }
       }, 10000);
     }
   } catch (error) {
