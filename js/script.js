@@ -4,18 +4,24 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ---- Sticky header on scroll ---- */
+  /* ---- Header solidifies continuously, reaching full solidity by 90px of scroll ---- */
   var header = document.querySelector('.site-header');
   if (header) {
-    var toggleSolid = function () {
-      if (window.scrollY > 60) {
-        header.classList.add('is-solid');
-      } else {
-        header.classList.remove('is-solid');
+    var navTicking = false;
+    var updateNavProgress = function () {
+      navTicking = false;
+      var navProgress = Math.max(0, Math.min(1, window.scrollY / 90));
+      header.style.setProperty('--nav-progress', navProgress);
+    };
+    var queueNavUpdate = function () {
+      if (!navTicking) {
+        navTicking = true;
+        requestAnimationFrame(updateNavProgress);
       }
     };
-    toggleSolid();
-    window.addEventListener('scroll', toggleSolid);
+    updateNavProgress();
+    window.addEventListener('scroll', queueNavUpdate, { passive: true });
+    window.addEventListener('resize', queueNavUpdate, { passive: true });
   }
 
   /* ---- Mobile nav toggle ---- */

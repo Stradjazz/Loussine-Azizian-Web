@@ -1,0 +1,13 @@
+PROMPTS.md
+
+# Cloudflare Wrangler local state/cache
+.wrangler/
+
+# Node (in case tooling gets added later)
+node_modules/
+npm-debug.log*
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store

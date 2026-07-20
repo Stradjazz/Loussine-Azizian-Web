@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Poppins:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -23,6 +23,10 @@
   <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        <img src="images/logo.png" alt="Loussine Azizian logo">
+      </a>
+
       <nav class="nav-primary">
         <a href="index.html" class="is-active">Home</a>
         <a href="about.html">About</a>
@@ -31,10 +35,6 @@
         <a href="gallery.html">Gallery</a>
         <a href="contact.html">Contact</a>
       </nav>
-
-      <a href="index.html" class="site-logo">
-        <img src="images/logo.png" alt="Loussine Azizian logo">
-      </a>
 
       <div class="nav-social">
         <a href="https://www.facebook.com/lucy.azizian.1" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -50,11 +50,55 @@
     </div>
   </header>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" style="background-image:url('images/hero-header.jpg');">
-    <div class="hero-content container">
-      <h1>Loussine Azizian Idsøe<span class="line2">violinist &amp; mom</span></h1>
-      <a href="about.html" class="btn">Read my bio <i class="fas fa-arrow-right"></i></a>
+  <!-- ============ HERO (scroll-driven parallax) ============ -->
+  <section class="hero-parallax-track" id="heroParallaxTrack">
+    <div class="hero-parallax-stage">
+
+      <div class="hero-parallax-bg" id="heroParallaxBg">
+        <img src="images/hero-header.jpg" alt="Loussine Azizian Idsøe, violinist">
+      </div>
+
+      <div class="hero-parallax-wash" id="heroParallaxWash"></div>
+      <div class="hero-parallax-dim" id="heroParallaxDim"></div>
+      <div class="hero-parallax-glow" id="heroParallaxGlow"></div>
+
+      <div class="hero-parallax-corner hero-parallax-corner--tl" id="heroParallaxCornerTl">
+        <img src="images/corner-top-left-dark.png" alt="" loading="lazy" decoding="async">
+        <img src="images/corner-top-left.png" alt="" loading="lazy" decoding="async">
+        <img src="images/corner-top-left.png" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="hero-parallax-corner hero-parallax-corner--tr" id="heroParallaxCornerTr">
+        <img src="images/corner-top-right-dark.png" alt="" loading="lazy" decoding="async">
+        <img src="images/corner-top-right.png" alt="" loading="lazy" decoding="async">
+        <img src="images/corner-top-right.png" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="hero-parallax-corner hero-parallax-corner--bl" id="heroParallaxCornerBl">
+        <img src="images/corner-bottom-left-dark.png" alt="" loading="lazy" decoding="async">
+        <img src="images/corner-bottom-left.png" alt="" loading="lazy" decoding="async">
+        <img src="images/corner-bottom-left.png" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="hero-parallax-corner hero-parallax-corner--br" id="heroParallaxCornerBr">
+        <img src="images/corner-bottom-right-dark.png" alt="" loading="lazy" decoding="async">
+        <img src="images/corner-bottom-right.png" alt="" loading="lazy" decoding="async">
+        <img src="images/corner-bottom-right.png" alt="" loading="lazy" decoding="async">
+      </div>
+
+      <div class="hero-parallax-text">
+        <div class="hero-parallax-title" id="heroParallaxTitle">
+          <h1>Loussine Azizian Idsøe<br>violinist</h1>
+          <a href="about.html" class="hero-parallax-cta">Read my bio <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="hero-parallax-quote" id="heroParallaxQuote">
+          <p>&ldquo;One gets caught up in Azizian&rsquo;s perfected intense violin sound&rdquo;</p>
+          <cite>Henrik Friis, Politiken</cite>
+        </div>
+      </div>
+
+      <div class="hero-parallax-scrollcue" id="heroParallaxScrollcue">
+        <div class="hero-parallax-scrollcue-line"></div>
+        <span>SCROLL</span>
+      </div>
+
     </div>
   </section>
 
@@ -220,6 +264,7 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script src="js/hero-parallax.js"></script>
   <script src="js/home-agenda.js"></script>
   <script src="js/forms.js"></script>
 </body>
